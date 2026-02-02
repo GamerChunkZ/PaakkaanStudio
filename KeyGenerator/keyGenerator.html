@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Generator</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 300px;
+        }
+
+        input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 15px;
+            word-break: break-all;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        Use a 16 or more character secret_key for better security. Include Capital and small letters along with number and special characters.
+        <input type="text" id="input1" placeholder="SecretKey">
+        <input type="text" id="input2" placeholder="Player Email-ID">
+        <button onclick="handleCreate()">GenerateKey</button>
+        <div id="result"></div>
+    </div>
+
+    <!-- Link to external JS file -->
+    <script src="keyCalculator.js"></script>
+</body>
+
+</html>
