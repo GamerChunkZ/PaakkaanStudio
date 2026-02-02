@@ -1,10 +1,11 @@
-async function generateSHA256Key(str1, str2, str3, str4) {
+async function generateSHA256Key(str1, str2) {
     // 1. Combine the 4 strings (you can add a separator like ':' if needed)
-    const combinedString = str1 + str2 + str3 + str4;
+    const combinedString = str1 + (str2 || "");
 
     // 2. Encode the string into a byte array (Uint8Array)
-    const msgUint8 = new TextEncoder().encode(combinedString);
+    var msgUint8 = new TextEncoder().encode(combinedString);
 
+    console.log(msgUint8);
     // 3. Use the Web Crypto API to hash the data
     const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8);
 
@@ -16,8 +17,9 @@ async function generateSHA256Key(str1, str2, str3, str4) {
 }
 
 async function handleCreate() {
-    const s1 = document.getElementById('input1').value;
-    const s2 = document.getElementById('input2').value;
+    var s1 = document.getElementById('key').value;
+    var s2 = document.getElementById('name').value;
+    s2 = s2.toLowerCase();
 
     try {
         const hash = await generateSHA256Key(s1 + s2);
