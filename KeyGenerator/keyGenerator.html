@@ -1,65 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Key Generator</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Key Generator | Paakkaan Studio</title>
+    <meta name="theme-color" content="#EA6113">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Style/site.css">
     <style>
-        body {
-            font-family: sans-serif;
+        .page-wrapper {
             display: flex;
             justify-content: center;
-            padding: 50px;
+            align-items: center;
+            min-height: 70vh;
         }
-
-        .container {
+        .tool-panel {
+            padding: 50px 45px;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            animation: formReveal 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        @keyframes formReveal {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .tool-heading {
+            font-family: 'Oswald', sans-serif;
+            font-size: 28pt;
+            color: var(--primary-yellow);
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .tool-desc {
+            font-size: 11.5pt;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            line-height: 1.5;
+        }
+        .form-group {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            width: 300px;
+            gap: 18px;
+            margin-bottom: 25px;
         }
-
-        input {
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+        .glass-input {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: var(--text-light);
+            font-family: 'Outfit', sans-serif;
+            font-size: 11.5pt;
+            transition: all 0.3s ease;
+            outline: none;
         }
-
-        button {
-            padding: 10px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
+        .glass-input:focus {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--primary-orange);
+            box-shadow: 0 0 15px rgba(234, 97, 19, 0.3);
+            transform: translateY(-2px);
+        }
+        .glass-input::placeholder {
+            color: rgba(176, 176, 192, 0.6);
+        }
+        .generate-btn {
+            width: 100%;
+            padding: 16px;
+            font-size: 12.5pt;
+            border-radius: 14px; 
+            margin-top: 10px;
             cursor: pointer;
+            font-family: 'Outfit', sans-serif;
         }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        #result {
-            margin-top: 15px;
+        .result-box {
+            margin-top: 25px;
+            padding: 18px;
+            background: rgba(43, 222, 115, 0.15);
+            border: 1px dashed #2bde73;
+            border-radius: 12px;
+            color: #2bde73;
             word-break: break-all;
-            font-weight: bold;
-            color: #333;
+            font-family: 'Oswald', sans-serif;
+            font-size: 12pt;
+            letter-spacing: 0.5px;
+            animation: fadeIn 0.4s ease;
+        }
+        .result-box:empty {
+            display: none;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
-
 <body>
-
-    <div class="container">
-        Use a 16 or more character secret_key for better security. Include Capital and small letters along with number and special characters.
-        <input type="text" id="key" placeholder="SecretKey">
-        <input type="text" id="name" placeholder="Player-ID">
-        <button onclick="handleCreate()">GenerateKey</button>
-        <div id="result"></div>
+    <div class="bg-scene">
+        <div class="ambient-glow glow-primary"></div>
+        <div class="ambient-glow glow-secondary"></div>
     </div>
-
-    <!-- Link to external JS file -->
+    <nav class="glass-navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-brand">
+                <img src="../Images/Studio Icon.png" alt="Paakkaan Logo" class="nav-logo">
+                <span class="nav-title">PAAKKAAN STUDIO</span>
+            </a>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../index.html#games" class="nav-link">Our Games</a>
+            </div>
+        </div>
+    </nav>
+    <main class="main-content">
+        <div class="page-wrapper">
+            <div class="tool-panel glass-panel">
+                <h1 class="tool-heading">Key Generator</h1>
+                <p class="tool-desc">
+                    Use a 16 or more character <strong>Secret Key</strong> for maximum security. Include capital and lowercase letters along with numbers and special characters.
+                </p>
+                <div class="form-group">
+                    <input type="text" id="key" placeholder="Secret Key" class="glass-input" autocomplete="off">
+                    <input type="text" id="name" placeholder="Player ID" class="glass-input" autocomplete="off">
+                </div>
+                <button onclick="handleCreate()" class="btn-primary generate-btn">Generate Secure Key</button>
+                <div id="result" class="result-box"></div>
+            </div>
+        </div>
+    </main>
     <script src="keyCalculator.js"></script>
 </body>
-
 </html>

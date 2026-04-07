@@ -1,76 +1,135 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Paakkaan Studio</title>
-    <meta name="description" content="Paakkaan studio home page">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="Style/site.css">
+    <title>Paakkaan Studio | Official Site</title>
+    <meta name="description" content="Paakkaan Studio creates immersive, high-quality gaming experiences natively crafted for you. Discover Bus Simulator Kerala and more.">
+    <meta name="theme-color" content="#EA6113">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Style/site.css">
+    <link rel="manifest" href="manifest.json">
 </head>
-
 <body>
-    <header class="site-header">
-        <span class="header-center">
-            <img src="Images/Studio Icon.png" alt="Studio Logo" class="logo">
-            <h1 style="font-size: 50pt; color: white;"><b>PAAKKAAN STUDIO</b></h1>
-        </span>
-    </header>
-    <main class="site-main">
-        <span style="justify-content: center; display: flex; height: 50px;">
-            <H1>Games</H1>
-            <div style="height: 50px; width: 100%; align-content: center;">
-                <hr width="100%" height="1px" style="margin-inline: 10px; margin-block: 3px;">
-                <hr width="100%" height="1px" style="margin-inline: 10px; margin-block: 3px">
-            </div>
-        </span>
-        <div class="game-div">
-            <img src="Images/BSK Icon.png" alt="Studio Logo" class="logo">
-            <div style="height: 100%; padding-left: 20px; align-content: center;">
-                <h1 class="game-name"><b>Bus Simulator Kerala</b></h1>
-                <a class="a" href="https://play.google.com/store/apps/details?id=com.GamerChunkZ.BusSimulatorKerala">
-                    <button type="button" class="download-btn">GooglePlay Store</button></a>
-                <a class="a" href="https://apps.apple.com/app/bussimulatorkerala/id6743446455">
-                    <button type="button" class="download-btn">App Store</button></a>
+    <div class="bg-scene">
+        <div class="ambient-glow glow-primary"></div>
+        <div class="ambient-glow glow-secondary"></div>
+    </div>
+    <nav class="glass-navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-brand">
+                <img src="Images/Studio Icon.png" alt="Paakkaan Logo" class="nav-logo">
+                <span class="nav-title">PAAKKAAN STUDIO</span>
+            </a>
+            <div class="nav-links">
+                <a href="#games" class="nav-link">Our Games</a>
+                <a href="#about" class="nav-link">About Us</a>
+                <a href="#footer" class="nav-link">Contact</a>
+                <a href="KeyGenerator/keyGenerator.html" class="nav-link nav-action-btn">Key Generator</a>
             </div>
         </div>
-
-
+    </nav>
+    <main class="main-content">
+        <section id="hero" class="hero-section">
+            <div class="hero-card glass-panel reveal" style="transition-delay: 100ms;">
+                <h1 class="hero-hd">Crafting Immersive<br><span class="gradient-text">Gaming Worlds</span></h1>
+                <p class="hero-subhd">We build premium native experiences that transport players to entirely new dimensions.</p>
+                <div class="hero-actions">
+                    <a href="#games" class="btn-primary">Explore Our Games</a>
+                </div>
+            </div>
+        </section>
+        <section id="games" class="games-section">
+            <div class="section-title-wrapper reveal" style="transition-delay: 200ms;">
+                <div class="section-lines"><div class="line"></div></div>
+                <h2 class="section-heading">Featured Games</h2>
+                <div class="section-lines"><div class="line"></div></div>
+            </div>
+            <div class="games-grid">
+                <article class="game-card glass-panel interactive-glass reveal" style="transition-delay: 300ms;">
+                    <div class="game-card-inner">
+                        <div class="game-icon-wrapper">
+                            <img src="Images/BSK Icon.png" alt="Bus Simulator Kerala Icon" class="game-app-icon">
+                        </div>
+                        <div class="game-info">
+                            <h3 class="game-title">Bus Simulator Kerala</h3>
+                            <p class="game-description">Experience the most realistic and authentic bus simulation. Drive across highly detailed routes natively crafted for your mobile device with cutting-edge graphics and physics.</p>
+                            <div class="download-actions">
+                                <a href="https://play.google.com/store/apps/details?id=com.GamerChunkZ.BusSimulatorKerala" target="_blank" rel="noopener noreferrer" class="store-btn">
+                                    <img src="Images/google-play-badge.svg" alt="Get it on Google Play" class="store-badge">
+                                </a>
+                                <a href="https://apps.apple.com/app/bussimulatorkerala/id6743446455" target="_blank" rel="noopener noreferrer" class="store-btn">
+                                    <img src="Images/app-store-badge.svg" alt="Download on the App Store" class="store-badge">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <section id="about" class="about-section">
+            <div class="about-card glass-panel reveal" style="transition-delay: 200ms;">
+                <h2 class="about-heading">About Paakkaan Studio</h2>
+                <p class="about-text">Founded by passionate developers, Paakkaan Studio is dedicated to pushing the boundaries of mobile simulation. Through a deep commitment to high-fidelity graphics, rich gameplay mechanics, and active community feedback, we strive to build legendary mobile experiences.</p>
+            </div>
+        </section>
     </main>
-    <footer class="site-footer">
-        <hr width="100%" height="1px" style="margin-inline: 10px; margin-block: 3px;">
-        <div style="width: 100%; height: 100px; gap: 30px; display: flex; justify-content: center; padding-top: 20px;">
-            <div>
-                <B>
-                    <p>Social</p>
-                </B><br />
-                <a class="a" href="https://www.youtube.com/c/gamerchunkz">YouTube</a><br />
-                <a class="a" href="https://discord.gg/tm2t5EvYQ3">Discord</a><br />
-                <a class="a" href="https://www.instagram.com/paakkaan_studio/">Instagram</a><br />
+    <footer id="footer" class="modern-footer glass-panel">
+        <div class="footer-container">
+            <div class="footer-brand-box">
+                <img src="Images/Studio Icon.png" alt="Studio Logo" class="footer-logo">
+                <p class="footer-mission">Creating immersive gaming experiences natively crafted for you.</p>
             </div>
-            <div>
-                <B>
-                    <p>Contact us</p>
-                </B><br />
-                gamerchunkz@gmail.com<br />
+            <div class="footer-links-grid">
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Social</h4>
+                    <a class="footer-link" href="https://www.youtube.com/c/gamerchunkz">YouTube</a>
+                    <a class="footer-link" href="https://discord.gg/tm2t5EvYQ3">Discord</a>
+                    <a class="footer-link" href="https://www.instagram.com/paakkaan_studio/">Instagram</a>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Contact Us</h4>
+                    <span class="footer-text email-text">gamerchunkz@gmail.com</span>
+                </div>
+                <div class="footer-col full-span">
+                    <h4 class="footer-col-title">Legal & Tools</h4>
+                    <a class="footer-link" href="Policy/policy.html">Privacy Policy</a>
+                    <a class="footer-link keyg-btn" href="KeyGenerator/keyGenerator.html">Key Generator</a>
+                </div>
             </div>
-            <div>
-                <B>
-                    <p>Privacy Policy</p>
-                </B><br />
-                <a class="a" href="Policy/policy.html">Link</a><br />
-            </div>
-            <a class="a" href="KeyGenerator/keyGenerator.html">
-                <B>Key Generator</B>
-            </a>
-
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2026 Paakkaan Studio. All rights reserved.</p>
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -50px 0px',
+                threshold: 0.15
+            };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, observerOptions);
+            document.querySelectorAll('.reveal').forEach(el => {
+                observer.observe(el);
+            });
+        });
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js').catch(error => {
+                    console.log('ServiceWorker registration failed: ', error);
+                });
+            });
+        }
+    </script>
 </body>
-
 </html>
