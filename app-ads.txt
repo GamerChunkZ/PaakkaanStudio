@@ -1,6 +1,6 @@
 google.com, pub-2295058070653608, DIRECT, f08c47fec0942fa0
-facebook.com, 2339651656532310, RESELLER, c3e20eee3f780d68
 facebook.com, 2854096534787493, RESELLER, c3e20eee3f780d68
+facebook.com, 2339651656532310, RESELLER, c3e20eee3f780d68
 
 OWNERDOMAIN=https://paakkaanstudio.in
 ironsrc.com, 482093, DIRECT
