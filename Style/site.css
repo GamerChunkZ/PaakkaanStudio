@@ -271,6 +271,7 @@ body {
 }
 .game-card {
     padding: 40px;
+    margin: 10px;
 }
 .game-card-inner {
     display: flex;
