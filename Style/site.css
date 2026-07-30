@@ -583,3 +583,214 @@ body {
         font-size: 9pt;
     }
 }
+
+/* BSK Hub styles */
+.bsk-hub-container {
+    margin-top: 20px;
+    padding-top: 15px;
+}
+.bsk-hub-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
+    margin-bottom: 18px;
+}
+.bsk-hub-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+.hub-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(30, 15, 5, 0.25);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 20px 25px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.hub-card:hover {
+    background: rgba(234, 97, 19, 0.08);
+    border-color: var(--primary-orange);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(234, 97, 19, 0.25);
+}
+.hub-icon-wrapper {
+    flex-shrink: 0;
+    margin-right: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hub-app-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+.hub-card:hover .hub-app-icon {
+    transform: scale(1.08);
+}
+.left-arrow-card {
+    flex-direction: row;
+}
+.right-arrow-card, .full-width-card {
+    flex-direction: row;
+}
+.hub-arrow-col {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--primary-yellow);
+    transition: transform 0.3s ease, color 0.3s ease;
+    flex-shrink: 0;
+}
+.left-arrow-card:hover .hub-arrow-col {
+    transform: translateX(-5px);
+    color: white;
+}
+.right-arrow-card:hover .hub-arrow-col,
+.full-width-card:hover .hub-arrow-col {
+    transform: translateX(5px);
+    color: white;
+}
+.hub-arrow-text {
+    font-size: 8pt;
+    font-weight: 500;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: right;
+    opacity: 0.85;
+}
+.left-arrow-card .hub-arrow-text {
+    text-align: left;
+}
+.arrow-svg {
+    width: 24px;
+    height: 24px;
+}
+.hub-card-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.left-arrow-card .hub-card-content {
+    text-align: right;
+    padding-left: 20px;
+}
+.right-arrow-card .hub-card-content {
+    text-align: left;
+    padding-right: 20px;
+}
+.hub-card-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16pt;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 0.5px;
+}
+.hub-card-desc {
+    font-size: 11pt;
+    color: var(--text-muted);
+}
+.full-width-card {
+    width: 100%;
+    margin-bottom: 35px;
+}
+.full-width-card .hub-card-content {
+    text-align: center;
+}
+
+/* Animated border glow tracing */
+.border-glow-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+    overflow: visible;
+}
+.border-glow-rect {
+    fill: none;
+    stroke: transparent;
+    stroke-width: 3px;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.9s cubic-bezier(0.25, 0.8, 0.25, 1), stroke 0.3s ease;
+    stroke-dasharray: 30 170; /* 30 units dash, 170 units gap (pattern length = 200) */
+    stroke-dashoffset: 100; /* Hidden initially */
+}
+.game-card:hover .border-glow-rect {
+    stroke: var(--primary-orange);
+    stroke-dashoffset: -100; /* Sweeps around and disappears */
+    filter: drop-shadow(0 0 4px var(--primary-orange)) drop-shadow(0 0 10px var(--primary-orange));
+}
+
+/* Community pills representing the oval pills at the bottom */
+.hub-community-pills {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+.community-pill-btn {
+    display: inline-block;
+    padding: 10px 24px;
+    border-radius: 30px;
+    border: 1px solid var(--glass-border);
+    background: rgba(30, 15, 5, 0.3);
+    color: var(--text-light);
+    font-size: 11pt;
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.community-pill-btn:hover {
+    border-color: var(--primary-orange);
+    background: var(--primary-orange);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(234, 97, 19, 0.4);
+}
+
+/* Responsive CSS for hub */
+@media (max-width: 768px) {
+    .bsk-hub-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .hub-card {
+        padding: 15px 20px;
+    }
+    .left-arrow-card {
+        flex-direction: row-reverse;
+    }
+    .left-arrow-card .hub-card-content {
+        text-align: left;
+        padding-left: 0;
+        padding-right: 20px;
+    }
+    .hub-card-title {
+        font-size: 13pt;
+    }
+    .hub-card-desc {
+        font-size: 9.5pt;
+    }
+    .community-pill-btn {
+        padding: 8px 18px;
+        font-size: 9pt;
+    }
+}

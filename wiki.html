@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BSK Wiki & Tutorials | Paakkaan Studio</title>
+    <meta name="description"
+        content="Official Bus Simulator Kerala (BSK) Wiki. Find tutorials on how to download, install and activate custom vehicle mods and skins.">
+    <meta name="theme-color" content="#EA6113">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="Style/site.css">
+    <style>
+        /* Wiki Page Styling */
+        .wiki-header-container {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .wiki-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 36pt;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .wiki-subtitle {
+            font-size: 13pt;
+            color: var(--text-muted);
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .wiki-search-box {
+            max-width: 500px;
+            margin: 30px auto 0;
+            position: relative;
+        }
+
+        .wiki-search-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 14px 25px 14px 50px;
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            font-size: 11pt;
+            transition: all 0.3s ease;
+        }
+
+        .wiki-search-input:focus {
+            outline: none;
+            border-color: var(--primary-orange);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 15px rgba(234, 97, 19, 0.25);
+        }
+
+        .search-icon-svg {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Tabs layout */
+        .wiki-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .wiki-tab-btn {
+            background: rgba(30, 15, 5, 0.25);
+            border: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 12pt;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .wiki-tab-btn:hover {
+            color: var(--primary-yellow);
+            border-color: rgba(251, 185, 49, 0.5);
+            background: rgba(234, 97, 19, 0.05);
+        }
+
+        .wiki-tab-btn.active {
+            background: var(--primary-orange);
+            color: white;
+            border-color: var(--primary-orange);
+            box-shadow: 0 5px 15px rgba(234, 97, 19, 0.3);
+        }
+
+        /* Content panels */
+        .wiki-panels {
+            position: relative;
+        }
+
+        .wiki-panel {
+            display: none;
+            animation: fade-in 0.5s ease;
+        }
+
+        .wiki-panel.active {
+            display: block;
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Accordion items */
+        .accordion-item {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: border-color 0.3s ease;
+        }
+
+        .accordion-item:hover {
+            border-color: rgba(234, 97, 19, 0.4);
+        }
+
+        .accordion-header {
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .accordion-header h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 13pt;
+            font-weight: 600;
+            color: white;
+            margin: 0;
+        }
+
+        .accordion-icon {
+            color: var(--primary-yellow);
+            transition: transform 0.3s ease;
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        .accordion-item.open .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .accordion-content {
+            padding: 20px 25px;
+            font-size: 11pt;
+            color: var(--text-muted);
+            line-height: 1.6;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .accordion-content ol,
+        .accordion-content ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+
+        .accordion-content li {
+            margin-bottom: 6px;
+        }
+
+        .accordion-content code {
+            background: rgba(234, 97, 19, 0.15);
+            color: var(--primary-yellow);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 10pt;
+        }
+
+        .wiki-link {
+            color: var(--primary-yellow);
+            text-decoration: underline;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .wiki-link:hover {
+            color: white;
+        }
+
+        /* Back to top btn / footer info */
+        .wiki-footer-actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .wiki-action-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 11pt;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--glass-border);
+            color: var(--text-light);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .wiki-title {
+                font-size: 26pt;
+            }
+
+            .wiki-subtitle {
+                font-size: 11pt;
+            }
+
+            .wiki-tab-btn {
+                padding: 10px 20px;
+                font-size: 10.5pt;
+            }
+
+            .accordion-header {
+                padding: 15px;
+            }
+
+            .accordion-header h3 {
+                font-size: 11pt;
+            }
+
+            .accordion-content {
+                padding: 15px;
+                font-size: 10pt;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="Style/site.css">
+    <style>
+        /* Modern Wiki Layout */
+        .wiki-layout-container {
+            display: flex;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 20px 60px;
+            min-height: calc(100vh - 120px);
+            align-items: start;
+        }
+
+        /* Left Navigation Sidebar */
+        .wiki-sidebar-nav {
+            width: 320px;
+            flex-shrink: 0;
+            padding: 30px 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            max-height: calc(100vh - 160px);
+            position: sticky;
+            top: 100px;
+        }
+
+        .sidebar-nav-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 18pt;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 12px;
+            margin: 0;
+            text-align: left;
+        }
+
+        .sidebar-search {
+            position: relative;
+        }
+
+        .sidebar-search-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            padding: 12px 15px 12px 42px;
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            font-size: 10pt;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-search-input:focus {
+            outline: none;
+            border-color: var(--primary-orange);
+            background: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 0 10px rgba(234, 97, 19, 0.2);
+        }
+
+        .sidebar-search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            width: 16px;
+            height: 16px;
+        }
+
+        .wiki-menu-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            overflow-y: auto;
+            max-height: 400px;
+            padding-right: 5px;
+        }
+
+        /* Custom Scrollbar for Sidebar Menu */
+        .wiki-menu-list::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .wiki-menu-list::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 2px;
+        }
+
+        .wiki-menu-list::-webkit-scrollbar-thumb {
+            background: rgba(234, 97, 19, 0.3);
+            border-radius: 2px;
+        }
+
+        .wiki-menu-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            font-size: 11pt;
+            font-weight: 500;
+            text-align: left;
+        }
+
+        .wiki-menu-list li::before {
+            content: "•";
+            color: var(--primary-yellow);
+            font-size: 14pt;
+            line-height: 1;
+        }
+
+        .wiki-menu-link {
+            color: white;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            text-decoration-color: rgba(255, 255, 255, 0.25);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            word-break: break-word;
+        }
+
+        .wiki-menu-link:hover {
+            color: var(--primary-yellow);
+            text-decoration-color: var(--primary-yellow);
+            text-shadow: 0 0 8px rgba(251, 185, 49, 0.3);
+        }
+
+        .wiki-menu-list li.active-link .wiki-menu-link {
+            color: var(--primary-yellow);
+            text-decoration-color: var(--primary-yellow);
+            font-weight: 600;
+        }
+
+        .back-to-home-btn {
+            margin-top: 10px;
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 10pt;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        /* Middle Article Panel */
+        .wiki-content-main {
+            flex-grow: 1;
+            padding: 40px;
+            min-height: 500px;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .wiki-article-header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .wiki-article-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 32pt;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0 0 12px 0;
+            line-height: 1.15;
+        }
+
+        .wiki-article-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .meta-folder-icon {
+            color: var(--primary-orange);
+            font-size: 11pt;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 4px;
+        }
+
+        .wiki-article-body {
+            font-family: 'Outfit', sans-serif;
+            font-size: 12pt;
+            line-height: 1.7;
+            color: var(--text-muted);
+            text-align: left;
+        }
+
+        .wiki-article-body p {
+            margin-bottom: 20px;
+        }
+
+        .wiki-article-body img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            margin: 15px 0 25px;
+            display: block;
+        }
+
+        .wiki-article-body h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 18pt;
+            font-weight: 600;
+            color: white;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+            padding-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .wiki-article-body ol,
+        .wiki-article-body ul {
+            padding-left: 24px;
+            margin-bottom: 20px;
+        }
+
+        .wiki-article-body li {
+            margin-bottom: 10px;
+        }
+
+        .wiki-article-body code {
+            background: rgba(234, 97, 19, 0.12);
+            color: var(--primary-yellow);
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 10.5pt;
+            border: 1px solid rgba(234, 97, 19, 0.2);
+        }
+
+        .wiki-article-body strong {
+            color: white;
+        }
+
+        .wiki-link {
+            color: var(--primary-yellow);
+            text-decoration: underline;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .wiki-link:hover {
+            color: white;
+        }
+
+        .mobile-back-btn {
+            display: none;
+            margin-bottom: 25px;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--glass-border);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 9.5pt;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-back-btn:hover {
+            background: rgba(234, 97, 19, 0.1);
+            border-color: var(--primary-orange);
+        }
+
+
+
+        @media (max-width: 768px) {
+            .wiki-layout-container {
+                flex-direction: column;
+                padding: 95px 15px 40px;
+                gap: 20px;
+            }
+
+            .wiki-sidebar-nav {
+                width: 100%;
+                position: static;
+                max-height: none;
+                padding: 20px;
+            }
+
+            .wiki-content-main {
+                width: 100%;
+                padding: 25px;
+            }
+
+            .wiki-article-title {
+                font-size: 24pt;
+            }
+
+            /* Toggle visibility on mobile using classes */
+            .wiki-layout-container.article-active .wiki-sidebar-nav {
+                display: none;
+            }
+
+            .wiki-layout-container.article-active .wiki-content-main {
+                display: block;
+            }
+
+            .wiki-layout-container.article-active .mobile-back-btn {
+                display: flex;
+            }
+
+            .wiki-layout-container:not(.article-active) .wiki-sidebar-nav {
+                display: flex;
+            }
+
+            .wiki-layout-container:not(.article-active) .wiki-content-main {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-scene">
+        <div class="ambient-glow glow-primary"></div>
+        <div class="ambient-glow glow-secondary"></div>
+    </div>
+
+    <nav class="glass-navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <img src="Images/Studio Icon.png" alt="Paakkaan Logo" class="nav-logo">
+                <span class="nav-title">PAAKKAAN STUDIO</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#games" class="nav-link">Our Games</a>
+                <a href="index.html#about" class="nav-link">About Us</a>
+                <a href="index.html#footer" class="nav-link">Contact</a>
+                <a href="KeyGenerator/keyGenerator.html" class="nav-link nav-action-btn">Key Generator</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="wiki-layout-container" id="wiki-container">
+        <!-- Sidebar Navigation (Left Column) -->
+        <aside class="wiki-sidebar-nav glass-panel">
+            <h2 class="sidebar-nav-title" style="display: flex; align-items: center; gap: 10px;">
+                <img src="Images/BSK Wiki Icon.png" alt="BSK Wiki Icon" style="width: 32px; height: 32px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.4);">
+                <span>BSK Tutorials</span>
+            </h2>
+            <div class="sidebar-search">
+                <svg class="sidebar-search-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+                <input type="text" class="sidebar-search-input" id="wiki-search" placeholder="Search guides..."
+                    oninput="handleWikiSearch()">
+            </div>
+
+            <ul class="wiki-menu-list" id="wiki-links-list">
+                <li id="li-add-skin" class="active-link"><a onclick="loadArticle('add-skin')" class="wiki-menu-link">How
+                        to add skin</a></li>
+                <li id="li-add-mod"><a onclick="loadArticle('add-mod')" class="wiki-menu-link">How to add mod</a></li>
+                <li id="li-add-horn"><a onclick="loadArticle('add-horn')" class="wiki-menu-link">How to add horn</a>
+                </li>
+                <li id="li-add-music"><a onclick="loadArticle('add-music')" class="wiki-menu-link">How to add music</a>
+                </li>
+                <li id="li-add-insd-nameboard"><a onclick="loadArticle('add-insd-nameboard')" class="wiki-menu-link">How
+                        to add insd nameboard</a></li>
+                <li id="li-fix-no-key-file"><a onclick="loadArticle('fix-no-key-file')" class="wiki-menu-link">How to
+                        fix no key file found issue</a></li>
+                <li id="li-fix-wrong-key-file"><a onclick="loadArticle('fix-wrong-key-file')" class="wiki-menu-link">How
+                        to fix wrong key file issue</a></li>
+            </ul>
+
+            <a href="index.html" class="back-to-home-btn btn-outline">Back to Home</a>
+        </aside>
+
+        <!-- Main Content Area (Middle Column) -->
+        <section class="wiki-content-main glass-panel">
+            <button class="mobile-back-btn" onclick="backToMenu()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Back to Wiki List
+            </button>
+            <article id="wiki-article-content">
+                <!-- Loaded dynamically by JS -->
+            </article>
+        </section>
+
+
+    </main>
+
+    <script>
+        // Article content database
+        const articles = {
+            "add-skin": {
+                title: "How to Add a Skin",
+                category: "tutorials",
+                content: `
+                    <p>Follow these simple steps to add a custom skin to your bus or traffic vehicle.</p>
+                    <ol>
+                        <li>
+                            <strong>Open the Customization Menu</strong>
+                            <p>Launch the game and go to Customization.</p>
+                            <img src="Images/skin_step1.jpg" alt="Open the Customization Menu">
+                        </li>
+                        <li>
+                            <strong>Select the Category</strong>
+                            <p>To add a skin to your own bus, select <strong>Player</strong>.</p>
+                            <img src="Images/skin_step2_player.jpg" alt="Select Player for bus skin">
+                            <p>To add a skin to traffic vehicles, select <strong>Traffic</strong>.</p>
+                            <img src="Images/skin_step2_traffic.jpg" alt="Select Traffic for traffic skin">
+                        </li>
+                        <li>
+                            <strong>Choose the Vehicle</strong>
+                            <p>Select the bus or traffic vehicle you want to apply the skin to.</p>
+                            <img src="Images/skin_step3_player.jpg" alt="Choose Player bus vehicle">
+                            <img src="Images/skin_step3_traffic.jpg" alt="Choose Traffic vehicle">
+                        </li>
+                        <li>
+                            <strong>Add the Skin</strong>
+                            <p>Click the <strong>Add Skin</strong> button.<br/>
+                            Only <strong>PNG</strong> files are supported.</p>
+                            <img src="Images/skin_step4_add.jpg" alt="Click Add Skin button">
+                            <p>Select your skin file.</p>
+                            <img src="Images/skin_step4_select.jpg" alt="Select your skin file from file picker">
+                            <p>Once the upload is complete, close the Customization menu.</p>
+                        </li>
+                        <li>
+                            <strong>Apply the Skin</strong>
+                            <p>Traffic vehicle skins are loaded automatically.<br/>
+                            Go to the Garage for player vehicle.</p>
+                            <img src="Images/skin_step5_garage.jpg" alt="Go to the Garage">
+                            <p>Select the newly added livery and click <strong>Buy</strong> to apply it.</p>
+                            <img src="Images/skin_step5_buy.jpg" alt="Select livery and click Buy to apply">
+                        </li>
+                        <li>
+                            <strong>Complete the Purchase</strong>
+                            <p>You can apply the skin using either of the following options:</p>
+                            <ul>
+                                <li>Pay in-game cash, or</li>
+                                <li>Watch an advertisement to apply it for free.</li>
+                            </ul>
+                            <img src="Images/skin_step6_purchase.jpg" alt="Skin Purchase Confirmation dialog">
+                        </li>
+                    </ol>
+                    <p style="margin-top: 25px;"><strong>Done!</strong> Your custom skin has now been successfully added and applied to your vehicle.</p>
+                `
+            },
+            "add-mod": {
+                title: "How to Add a Mod",
+                category: "tutorials",
+                content: `
+                    <p>Follow these steps to add a custom bus mod to the game.</p>
+                    <ol>
+                        <li>
+                            <strong>Open the Customization Menu</strong>
+                            <p>Launch the game and go to Customization.</p>
+                            <img src="Images/mod_step1.jpg" alt="Open the Customization Menu">
+                        </li>
+                        <li>
+                            <strong>Select the Category</strong>
+                            <p>To add a mod for your own vehicle, select <strong>Player</strong>.</p>
+                            <img src="Images/mod_step2_player.jpg" alt="Select Player for vehicle mod">
+                            <p>To add a mod for traffic vehicles, select <strong>Traffic</strong>.</p>
+                            <img src="Images/mod_step2_traffic.jpg" alt="Select Traffic for traffic mod">
+                        </li>
+                        <li>
+                            <strong>Add the Mod</strong>
+                            <p>Click <strong>Add New Mod</strong>.</p>
+                            <img src="Images/mod_step3_add.jpg" alt="Click Add New Mod button">
+                            <p>Select the mod file you want to import.</p>
+                            <img src="Images/mod_step3_select.jpg" alt="Select the mod file to import">
+                            <p>Once the import is complete, close the Customization menu.</p>
+                        </li>
+                        <li>
+                            <strong>For Player Vehicles</strong>
+                            <p>Go to the <strong>Garage</strong>.</p>
+                            <img src="Images/mod_step4_garage.jpg" alt="Go to the Garage">
+                            <p>Tap <strong>Next</strong> until you find your imported vehicle.</p>
+                            <img src="Images/mod_step4_next.jpg" alt="Tap Next arrow button to find imported vehicle">
+                            <p>Click the <strong>Rent</strong> button (located below the vehicle) to use it.</p>
+                            <img src="Images/mod_step4_rent.jpg" alt="Click Rent button below the vehicle to use it">
+                        </li>
+                        <li>
+                            <strong>For Traffic Vehicles</strong>
+                            <p>No additional steps are required. After importing the mod through the Traffic category, it will automatically appear as an AI traffic vehicle in-game.</p>
+                        </li>
+                    </ol>
+                    <p style="margin-top: 25px;"><strong>Done!</strong> Your custom mod has now been successfully added. Enjoy your drive! 🚍</p>
+                `
+            },
+            "add-horn": {
+                title: "How to Add a Horn",
+                category: "tutorials",
+                content: `
+                    <p>Follow these steps to import and use a custom horn in the game.</p>
+                    <ol>
+                        <li>
+                            <strong>Open the Customization Menu</strong>
+                            <p>Launch the game and go to Customization.</p>
+                            <img src="Images/horn_step1.jpg" alt="Open the Customization Menu">
+                        </li>
+                        <li>
+                            <strong>Select the Horn Section</strong>
+                            <p>In the Horn section, select <strong>Player</strong>.</p>
+                            <img src="Images/horn_step2_player.jpg" alt="Select Player in the Horn section">
+                        </li>
+                        <li>
+                            <strong>Choose Your Vehicle</strong>
+                            <p>Select the vehicle you want to add the horn to.</p>
+                            <img src="Images/horn_step3_vehicle.jpg" alt="Select vehicle for the horn">
+                        </li>
+                        <li>
+                            <strong>Import the Horn</strong>
+                            <p>Click <strong>Import</strong>.<br/>
+                            Only <strong>MP3</strong> files are supported.</p>
+                            <img src="Images/horn_step4_import.jpg" alt="Click Import button">
+                            <p>Select the horn file you want to use.</p>
+                            <img src="Images/horn_step4_select.jpg" alt="Select horn audio file from audio picker">
+                            <p>Once the import is complete, close the Customization menu.</p>
+                        </li>
+                        <li>
+                            <strong>Use the Horn</strong>
+                            <p>Start the game and drive the selected vehicle.</p>
+                            <p>Press the <strong>Horn</strong> button to use your newly imported horn.<br/>
+                            Press the <strong>Centre of Steering wheel</strong> to use default horn.</p>
+                            <img src="Images/horn_step5_use.jpg" alt="Press horn button in-game steering wheel or HUD">
+                        </li>
+                    </ol>
+                    <p style="margin-top: 25px;"><strong>Done!</strong> Your custom horn has been successfully imported and is ready to use. 🔊</p>
+                `
+            },
+            "add-music": {
+                title: "How to Add Music",
+                category: "tutorials",
+                content: `
+                    <p>Follow these steps to import and play custom music in the game.</p>
+                    <ol>
+                        <li>
+                            <strong>Open the Customization Menu</strong>
+                            <p>Launch the game and go to Customization.</p>
+                            <img src="Images/music_step1.jpg" alt="Open the Customization Menu">
+                        </li>
+                        <li>
+                            <strong>Open the Music Section</strong>
+                            <p>Select the <strong>Music</strong> option under Music Player.</p>
+                            <img src="Images/music_step2_option.jpg" alt="Select Music Option under Music Player">
+                        </li>
+                        <li>
+                            <strong>Import the Music</strong>
+                            <p>Click <strong>Add Song</strong>.<br/>
+                            Only <strong>MP3</strong> files are supported.</p>
+                            <img src="Images/music_step3_add.jpg" alt="Click Add Song button">
+                            <p>Select the music file you want to import.</p>
+                            <img src="Images/music_step3_select.jpg" alt="Select music file from audio picker">
+                            <p>Wait for the import to finish, then close the menu.</p>
+                        </li>
+                        <li>
+                            <strong>Play the Music</strong>
+                            <p>Start the game.</p>
+                            <p>Open the in-game Music Player.</p>
+                            <img src="Images/music_step4_play.jpg" alt="Open in-game Music Player dropdown menu">
+                            <p>Select your imported song and press Play.</p>
+                        </li>
+                    </ol>
+                    <p style="margin-top: 25px;"><strong>Done!</strong> Your custom music has been successfully imported and is ready to play. 🎵</p>
+                `
+            },
+            "add-insd-nameboard": {
+                title: "How to Add an INSD Nameboard",
+                category: "tutorials",
+                content: `
+                    <p>Follow these steps to add a custom INSD nameboard to your bus.</p>
+                    <ol>
+                        <li>
+                            <strong>Open the Customization Menu</strong>
+                            <p>Launch the game and go to Customization.</p>
+                            <img src="Images/nameboard_step1.jpg" alt="Open the Customization Menu">
+                        </li>
+                        <li>
+                            <strong>Open the INSD Section</strong>
+                            <p>Select <strong>Player</strong> under the Skin section.</p>
+                            <img src="Images/nameboard_step2_player.jpg" alt="Select Player under Skin section">
+                            <p>Choose the bus you want to add the INSD nameboard to.</p>
+                            <img src="Images/nameboard_step2_bus.jpg" alt="Select the bus for the INSD nameboard">
+                            <p style="background: rgba(234, 97, 19, 0.15); border-left: 3px solid var(--primary-orange); padding: 10px 14px; border-radius: 6px; font-size: 10.5pt; color: white; margin-top: 12px;"><strong>Note:</strong> INSD nameboards are currently supported only on <strong>BSK3</strong>.</p>
+                        </li>
+                        <li>
+                            <strong>Import the INSD</strong>
+                            <p>Click <strong>Add Skin</strong>.</p>
+                            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); padding: 15px; border-radius: 10px; margin-top: 15px;">
+                                <strong style="color: var(--primary-yellow); text-transform: uppercase; font-size: 11pt;">📋 File Requirements</strong>
+                                <p style="margin-top: 8px; margin-bottom: 0;">Before importing, make sure your file meets these requirements:</p>
+                                <ul style="margin-top: 8px; margin-bottom: 0;">
+                                    <li><strong>File format:</strong> MP4</li>
+                                    <li><strong>File name:</strong> <code>insd.mp4</code></li>
+                                    <li><strong>Resolution:</strong> 1080 × 288</li>
+                                </ul>
+                            </div>
+                            <img src="Images/nameboard_step3_add.jpg" alt="Click Add Skin button">
+                            <p>Select the video file you want to use.</p>
+                            <img src="Images/nameboard_step3_select.jpg" alt="Select insd.mp4 video file from file picker">
+                        </li>
+                        <li>
+                            <strong>Enable the Nameboard</strong>
+                            <p>After the import is complete, close the Customization menu.</p>
+                            <p>Start the game.</p>
+                            <p>Open the <strong>3-dot</strong> menu in the upper right.</p>
+                            <p>Enable the <strong>2nd Animation</strong> (button marked 2).</p>
+                            <p>Turn on the <strong>1st Light</strong> (button marked 1).</p>
+                            <img src="Images/nameboard_step4_enable.jpg" alt="Open 3-dot menu, enable 2nd Animation and 1st Light">
+                        </li>
+                    </ol>
+                    <p style="margin-top: 25px;"><strong>Done!</strong> Your custom INSD nameboard is now active and will display on your bus. ✨</p>
+                `
+            },
+            "fix-no-key-file": {
+                title: "No Key File Found",
+                category: "tutorials",
+                content: `
+                    <p>If you see the <strong>"No Key File Found"</strong> error, it means the mod ZIP file has been extracted.</p>
+                    <p>If the ZIP contains both a <strong>.bsk</strong> file and <strong>key.txt</strong>, do NOT extract it. Import the ZIP file directly.. The game only supports importing the original ZIP file.</p>
+                    <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid var(--glass-border); padding: 20px; border-radius: 12px; margin: 25px 0;">
+                        <h3 style="margin-top: 0; font-size: 14pt; color: var(--primary-yellow); border-bottom: none; padding-bottom: 0;">🛠️ How to Fix</h3>
+                        <ol style="margin-bottom: 0; margin-top: 12px;">
+                            <li>Delete the extracted mod folder (if you extracted it).</li>
+                            <li>Keep the mod as a <code>.zip</code> file.</li>
+                            <li>Open the game and import the ZIP file directly using the <strong>Add New Mod</strong> option.</li>
+                        </ol>
+                    </div>
+                    <p style="background: rgba(234, 97, 19, 0.15); border-left: 3px solid var(--primary-orange); padding: 12px 16px; border-radius: 6px; font-size: 10.5pt; color: white; margin-top: 20px;"><strong>Important:</strong> Always import the original ZIP file. Extracting it will cause the "No Key File Found" error.</p>
+                `
+            },
+            "fix-wrong-key-file": {
+                title: "Fixing the \"Wrong Key File\" Issue",
+                category: "tutorials",
+                content: `
+                    <p>If you encounter a <strong>"Wrong Key File"</strong> error while downloading or importing a mod, follow these steps to fix it.</p>
+                    <ol>
+                        <li>
+                            <strong>Copy Your GUID or UID</strong>
+                            <p>Open the game and go to <strong>Settings</strong>.</p>
+                            <img src="Images/wrongkey_step1_settings.jpg" alt="Open Settings in Main Menu">
+                            <p>Locate your GUID and UID. Tap the Copy icon next to GUID, or copy your UID manually.</p>
+                            <img src="Images/wrongkey_step1_copy.jpg" alt="Copy GUID or UID from Settings screen">
+                            <div style="background: rgba(234, 97, 19, 0.15); border-left: 3px solid var(--primary-orange); padding: 12px 16px; border-radius: 6px; font-size: 10.5pt; color: white; margin-top: 15px;">
+                                <strong>Note:</strong>
+                                <ul style="margin-top: 6px; margin-bottom: 0; padding-left: 20px;">
+                                    <li><strong>GUID:</strong> Includes a Copy icon next to it, but changes every time you reinstall the game.</li>
+                                    <li><strong>UID:</strong> Must be copied manually and is permanent.</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <strong>Open the BSK Companion App</strong>
+                            <p>Launch the BSK Companion app.</p>
+                            <p>Tap the <strong>Profile</strong> icon in the top right corner.</p>
+                            <img src="Images/wrongkey_step2_companion.jpg" alt="Tap Profile icon in BSK Companion app">
+                        </li>
+                        <li>
+                            <strong>Update Your Key</strong>
+                            <p>Paste or manually enter your GUID or UID.</p>
+                            <p>Tap <strong>Save</strong>.</p>
+                            <img src="Images/wrongkey_step3_save.jpg" alt="Enter BSK User ID and tap Save">
+                        </li>
+                        <li>
+                            <strong>Download the Mod Again</strong>
+                            <p>Return to the BSK Companion app.</p>
+                            <p>Download the mod again.</p>
+                            <p>Import it into the game.</p>
+                        </li>
+                    </ol>
+                    <p style="margin-top: 25px;"><strong>Done!</strong> The "Wrong Key File" issue should now be resolved, and you should be able to use the downloaded mod without any problems. 🎉</p>
+                `
+            }
+        };
+
+        // Load specific article by ID
+        function loadArticle(id) {
+            const article = articles[id];
+            if (!article) return;
+
+            // Generate content
+            const contentDiv = document.getElementById('wiki-article-content');
+            contentDiv.innerHTML = `
+                <div class="wiki-article-header">
+                    <h1 class="wiki-article-title">${article.title}</h1>
+                    <div class="wiki-article-meta">
+                        <span class="meta-folder-icon">📂</span>
+                        <span>WIKI · ${article.category}</span>
+                    </div>
+                </div>
+                <div class="wiki-article-body">
+                    ${article.content}
+                </div>
+            `;
+
+            // Update active sidebar link
+            document.querySelectorAll('#wiki-links-list li').forEach(li => {
+                li.classList.remove('active-link');
+            });
+            const activeLi = document.getElementById(`li-${id}`);
+            if (activeLi) {
+                activeLi.classList.add('active-link');
+            }
+
+            // Sync hash without triggering popstate
+            if (window.location.hash !== `#${id}`) {
+                history.replaceState(null, null, `#${id}`);
+            }
+
+            // On mobile, set main container as active article view
+            const container = document.getElementById('wiki-container');
+            container.classList.add('article-active');
+
+            // Scroll article window to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Mobile back button helper
+        function backToMenu() {
+            const container = document.getElementById('wiki-container');
+            container.classList.remove('article-active');
+        }
+
+        // Real-time sidebar search
+        function handleWikiSearch() {
+            const query = document.getElementById('wiki-search').value.toLowerCase();
+            const listItems = document.querySelectorAll('#wiki-links-list li');
+
+            listItems.forEach(li => {
+                const text = li.innerText.toLowerCase();
+                if (text.includes(query)) {
+                    li.style.display = 'flex';
+                } else {
+                    li.style.display = 'none';
+                }
+            });
+        }
+
+        // Initialize page state
+        window.addEventListener('DOMContentLoaded', () => {
+            // Read URL hash
+            const hash = window.location.hash.substring(1);
+            if (hash && articles[hash]) {
+                loadArticle(hash);
+            } else {
+                loadArticle('add-skin');
+            }
+        });
+
+        // Listen for history hash changes
+        window.addEventListener('hashchange', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash && articles[hash]) {
+                loadArticle(hash);
+            }
+        });
+    </script>
+</body>
+
+</html>
