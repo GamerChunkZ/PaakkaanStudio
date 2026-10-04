@@ -1,0 +1,181 @@
+/* Legal pages (privacy policies, terms, account deletion). Loaded after site.css and built on its
+   variables, glass panel, navbar and footer; only the long-form reading styles live here. */
+
+.legal-doc {
+    max-width: 860px;
+    margin: 0 auto 60px;
+    padding: 48px 52px 56px;
+    font-size: 12.5pt;
+    line-height: 1.7;
+}
+
+.legal-doc h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 30pt;
+    font-weight: 700;
+    line-height: 1.2;
+    color: white;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.legal-doc h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 17pt;
+    font-weight: 600;
+    color: var(--primary-yellow);
+    letter-spacing: .5px;
+    margin: 2.1em 0 .5em;
+    padding-top: 1.1em;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.legal-doc h3 {
+    font-size: 13pt;
+    font-weight: 600;
+    color: white;
+    margin: 1.5em 0 .4em;
+}
+
+.legal-doc p,
+.legal-doc ul,
+.legal-doc ol,
+.legal-doc address {
+    margin-bottom: 1em;
+}
+
+.legal-doc ul,
+.legal-doc ol {
+    padding-left: 1.4em;
+}
+
+.legal-doc li {
+    margin-bottom: .45em;
+}
+
+.legal-doc strong {
+    color: white;
+    font-weight: 600;
+}
+
+.legal-doc a {
+    color: var(--primary-orange);
+    text-underline-offset: 3px;
+}
+
+.legal-doc a:hover {
+    color: var(--primary-yellow);
+}
+
+.legal-doc address {
+    font-style: normal;
+}
+
+.legal-doc .meta {
+    color: var(--text-muted);
+    font-size: 11pt;
+    margin-bottom: 28px;
+}
+
+.legal-doc .summary {
+    background: rgba(234, 97, 19, 0.08);
+    border: 1px solid var(--glass-border);
+    border-left: 3px solid var(--primary-orange);
+    border-radius: 12px;
+    padding: 18px 24px;
+    margin-bottom: 8px;
+}
+
+.legal-doc .summary ul {
+    margin: 10px 0 0;
+}
+
+.legal-doc .summary li:last-child {
+    margin-bottom: 0;
+}
+
+.legal-doc .table-wrap {
+    overflow-x: auto;
+    margin: 10px 0 18px;
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+}
+
+.legal-doc table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11pt;
+    line-height: 1.55;
+}
+
+.legal-doc th,
+.legal-doc td {
+    text-align: left;
+    vertical-align: top;
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.legal-doc th {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    letter-spacing: .5px;
+    color: var(--primary-yellow);
+    background: rgba(234, 97, 19, 0.08);
+}
+
+.legal-doc tr:last-child td {
+    border-bottom: none;
+}
+
+.legal-doc .button {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-orange), var(--primary-yellow));
+    color: #1b0a03;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 12px 26px;
+    border-radius: 30px;
+    margin: 4px 0 10px;
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.legal-doc .button:hover {
+    color: #1b0a03;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(234, 97, 19, 0.4);
+}
+
+.legal-doc .caps {
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .legal-doc {
+        padding: 30px 20px 36px;
+        font-size: 11.5pt;
+    }
+
+    .legal-doc h1 {
+        font-size: 22pt;
+    }
+
+    .legal-doc h2 {
+        font-size: 15pt;
+    }
+
+    .modern-footer {
+        padding: 40px 20px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .legal-doc {
+        padding: 26px 16px 32px;
+    }
+}
