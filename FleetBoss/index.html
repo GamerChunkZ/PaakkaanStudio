@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fleet Boss: Idle Taxi &amp; Bus | Paakkaan Studio</title>
+    <meta name="description"
+        content="Fleet Boss is an idle taxi & bus tycoon where you run a city's transport company. Tap fares, hire dispatchers, grow your fleet and earn while you're away.">
+    <meta name="theme-color" content="#EA6113">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Fleet Boss: Idle Taxi &amp; Bus">
+    <meta property="og:description" content="Fleet Boss is an idle taxi & bus tycoon where you run a city's transport company.">
+    <meta property="og:image" content="https://paakkaanstudio.in/FleetBoss/Images/feature.jpg">
+    <meta property="og:url" content="https://paakkaanstudio.in/FleetBoss/">
+    <link rel="icon" type="image/png" sizes="64x64" href="Icons/app-icon-64.png">
+    <link rel="apple-touch-icon" href="Icons/app-icon-192.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../Style/site.css">
+    <style>
+        .fb-hero { min-height: auto; margin-bottom: 30px; }
+        .fb-hero .hero-card { padding: 50px 40px; max-width: 950px; }
+        .fb-icon { width: 120px; height: 120px; border-radius: 28px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); margin-bottom: 20px; }
+        .fb-hero .hero-hd { font-size: 46pt; margin-bottom: 15px; }
+        .fb-hero .hero-subhd { margin-bottom: 30px; }
+        .soon-badge { display: inline-flex; align-items: center; gap: 12px; padding: 10px 22px; border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3); background: rgba(0, 0, 0, 0.45); color: var(--text-light); text-align: left; }
+        .soon-badge svg { width: 30px; height: 30px; flex-shrink: 0; }
+        .soon-badge small { display: block; font-size: 9pt; letter-spacing: 1px; text-transform: uppercase; color: var(--primary-yellow); }
+        .soon-badge span { font-size: 15pt; font-weight: 600; line-height: 1.2; }
+        .fb-feature-img { width: 100%; border-radius: 16px; margin-top: 35px; display: block; border: 1px solid var(--glass-border); }
+        .fb-section { padding: 40px 0; }
+        .fb-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; }
+        .fb-feature { padding: 30px; }
+        .fb-feature h3 { font-family: 'Oswald', sans-serif; font-size: 17pt; font-weight: 600; color: var(--primary-yellow); margin-bottom: 12px; letter-spacing: 0.5px; }
+        .fb-feature ul { list-style: none; color: var(--text-muted); font-weight: 300; }
+        .fb-feature li { padding-left: 18px; position: relative; margin-bottom: 6px; }
+        .fb-feature li::before { content: ''; position: absolute; left: 0; top: 0.65em; width: 7px; height: 7px; border-radius: 50%; background: var(--primary-orange); }
+        .fb-shots { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 4px 18px; }
+        .fb-shots img { width: 240px; aspect-ratio: 9 / 16; flex-shrink: 0; border-radius: 18px; scroll-snap-align: start;
+            border: 1px solid var(--glass-border); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5); }
+        .fb-legal { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; padding: 30px; }
+        .fb-legal a { display: block; padding: 18px 22px; border-radius: 14px; text-decoration: none; color: var(--text-light);
+            border: 1px solid var(--glass-border); background: rgba(0, 0, 0, 0.25); transition: border-color 0.3s ease, transform 0.3s ease; }
+        .fb-legal a:hover { border-color: var(--primary-orange); transform: translateY(-3px); }
+        .fb-legal strong { display: block; font-size: 13pt; color: var(--primary-yellow); }
+        .fb-legal span { font-size: 11pt; color: var(--text-muted); font-weight: 300; }
+        @media (max-width: 768px) {
+            .fb-hero .hero-card { padding: 35px 20px; }
+            .fb-hero .hero-hd { font-size: 28pt; }
+            .fb-icon { width: 96px; height: 96px; border-radius: 22px; }
+            .fb-shots img { width: 200px; }
+            .fb-features { grid-template-columns: 1fr; }
+            .fb-feature, .fb-legal { padding: 22px; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-scene">
+        <div class="ambient-glow glow-primary"></div>
+        <div class="ambient-glow glow-secondary"></div>
+    </div>
+    <nav class="glass-navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-brand">
+                <img src="../Images/Studio Icon.png" alt="Paakkaan Studio logo" class="nav-logo">
+                <span class="nav-title">PAAKKAAN STUDIO</span>
+            </a>
+            <div class="nav-links">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#screenshots" class="nav-link">Screenshots</a>
+                <a href="privacy-policy.html" class="nav-link">Privacy</a>
+                <a href="terms.html" class="nav-link">Terms</a>
+                <a href="delete-data.html" class="nav-link">Delete data</a>
+            </div>
+        </div>
+    </nav>
+    <main class="main-content">
+        <section class="hero-section fb-hero">
+            <div class="hero-card glass-panel reveal" style="transition-delay: 100ms;">
+                <img src="Icons/app-icon-192.png" alt="Fleet Boss app icon" class="fb-icon">
+                <h1 class="hero-hd">Fleet Boss<br><span class="gradient-text">Idle Taxi &amp; Bus</span></h1>
+                <p class="hero-subhd">Fleet Boss is an idle taxi &amp; bus tycoon where you run a city's transport
+                    company. Tap fares, hire dispatchers, grow your fleet and earn while you're away.</p>
+                <div class="soon-badge" role="note" aria-label="Coming soon to Google Play">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 2.6v18.8c0 .4.4.7.8.5l10.4-9.4c.3-.3.3-.7 0-1L4.8 2.1c-.4-.2-.8.1-.8.5zm12.6 7.1-2.4 2.3 2.4 2.3 3.3-1.9c.6-.3.6-1.1 0-1.4l-3.3-1.3z"/></svg>
+                    <div><small>Coming soon</small><span>Google Play</span></div>
+                </div>
+                <img src="Images/feature.jpg" alt="Fleet Boss: a city of taxis and buses" class="fb-feature-img">
+            </div>
+        </section>
+
+        <section id="features" class="fb-section">
+            <div class="section-title-wrapper reveal">
+                <div class="section-lines"><div class="line"></div></div>
+                <h2 class="section-heading">Features</h2>
+                <div class="section-lines"><div class="line"></div></div>
+            </div>
+            <div class="fb-features">
+                <div class="fb-feature glass-panel reveal">
+                    <h3>Build your transport empire</h3>
+                    <ul>
+                        <li>Start with a single bike, then unlock auto-rickshaws, cabs, family cars, luxury cars, city buses and luxury coaches.</li>
+                        <li>Every vehicle has its own passengers: school runs, office buses, airport trips, beach tours.</li>
+                        <li>Expand your garage and fill the roads with your fleet.</li>
+                    </ul>
+                </div>
+                <div class="fb-feature glass-panel reveal">
+                    <h3>Grow the city</h3>
+                    <ul>
+                        <li>Unlock new districts one by one: the airport, the beach, the business district, the college and the hills.</li>
+                        <li>Reach passenger milestones to add new landmarks to your city.</li>
+                        <li>Rush hours bring crowds and double fares.</li>
+                    </ul>
+                </div>
+                <div class="fb-feature glass-panel reveal">
+                    <h3>Idle and offline earnings</h3>
+                    <ul>
+                        <li>Hire dispatchers who take trips for you.</li>
+                        <li>Your company keeps earning while you're away.</li>
+                        <li>Upgrade speed, fares and capacity to grow faster.</li>
+                    </ul>
+                </div>
+                <div class="fb-feature glass-panel reveal">
+                    <h3>Collect and compete</h3>
+                    <ul>
+                        <li>Daily quests, a daily reward and dozens of achievements.</li>
+                        <li>Paint your vehicles, switch on night lights and complete the collection book.</li>
+                        <li>Beat your records and climb the Google Play Games leaderboards.</li>
+                    </ul>
+                </div>
+                <div class="fb-feature glass-panel reveal">
+                    <h3>Played your way</h3>
+                    <ul>
+                        <li>No forced ads, ever. Ads only play when you choose a bonus.</li>
+                        <li>Relaxing idle play: tap when you want, earn when you don't.</li>
+                        <li>Sign in with Google Play Games to keep your company safe on a new phone.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="screenshots" class="fb-section">
+            <div class="section-title-wrapper reveal">
+                <div class="section-lines"><div class="line"></div></div>
+                <h2 class="section-heading">Screenshots</h2>
+                <div class="section-lines"><div class="line"></div></div>
+            </div>
+            <div class="fb-shots reveal">
+                <img src="Images/shot-01.jpg" alt="Rush hour in the city" loading="lazy">
+                <img src="Images/shot-02.jpg" alt="City buses on the road" loading="lazy">
+                <img src="Images/shot-03.jpg" alt="The garage" loading="lazy">
+                <img src="Images/shot-04.jpg" alt="Dispatchers at work" loading="lazy">
+                <img src="Images/shot-05.jpg" alt="Vehicle paints" loading="lazy">
+                <img src="Images/shot-06.jpg" alt="City landmarks" loading="lazy">
+                <img src="Images/shot-07.jpg" alt="The city at night" loading="lazy">
+            </div>
+        </section>
+
+        <section id="legal" class="fb-section">
+            <div class="section-title-wrapper reveal">
+                <div class="section-lines"><div class="line"></div></div>
+                <h2 class="section-heading">Support &amp; Legal</h2>
+                <div class="section-lines"><div class="line"></div></div>
+            </div>
+            <div class="fb-legal glass-panel reveal">
+                <a href="privacy-policy.html"><strong>Privacy Policy</strong><span>What the game saves, ads and purchases</span></a>
+                <a href="terms.html"><strong>Terms of Use</strong><span>The rules for playing Fleet Boss</span></a>
+                <a href="delete-data.html"><strong>Delete your data</strong><span>Remove your cloud save and game data</span></a>
+                <a href="mailto:paakkaanstudio@gmail.com?subject=Fleet%20Boss"><strong>Contact us</strong><span>paakkaanstudio@gmail.com</span></a>
+            </div>
+        </section>
+    </main>
+    <footer id="footer" class="modern-footer glass-panel">
+        <div class="footer-container">
+            <div class="footer-brand-box">
+                <img src="../Images/Studio Icon.png" alt="Studio Logo" class="footer-logo">
+                <p class="footer-mission">Creating immersive gaming experiences natively crafted for you.</p>
+            </div>
+            <div class="footer-links-grid">
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Social</h4>
+                    <a class="footer-link" href="https://www.youtube.com/c/gamerchunkz" target="_blank" rel="noopener noreferrer">YouTube</a>
+                    <a class="footer-link" href="https://discord.gg/tm2t5EvYQ3" target="_blank" rel="noopener noreferrer">Discord</a>
+                    <a class="footer-link" href="https://www.instagram.com/paakkaan_studio/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Contact Us</h4>
+                    <span class="footer-text email-text">paakkaanstudio@gmail.com</span>
+                </div>
+                <div class="footer-col full-span">
+                    <h4 class="footer-col-title">Fleet Boss</h4>
+                    <a class="footer-link" href="privacy-policy.html">Privacy Policy</a>
+                    <a class="footer-link" href="terms.html">Terms of Use</a>
+                    <a class="footer-link" href="delete-data.html">Delete your data</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2026 Paakkaan Studio. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { root: null, rootMargin: '0px 0px -50px 0px', threshold: 0.15 });
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+
+</html>
